@@ -1,5 +1,3 @@
-# main.py
-
 from db import SessionLocal
 from services.aluno_service import AlunoService
 from services.livro_service import LivroService
@@ -8,7 +6,6 @@ from services.emprestimo_service import EmprestimoService
 from services.contem_service import ContemService
 
 def exibir_menu():
-    """Exibe o menu de opções para o usuário."""
     print("\n--- Sistema de Gerenciamento da Biblioteca ---")
     print("Opções de Aluno:")
     print("  1. Cadastrar Novo Aluno")
@@ -27,7 +24,6 @@ def exibir_menu():
     print("---------------------------------------------")
 
 def main():
-    """Função principal que executa o programa."""
     session = SessionLocal()
     
     # Instancia todos os serviços com a mesma sessão
@@ -129,7 +125,7 @@ def main():
 
             elif escolha == '0':
                 print("Encerrando o programa...")
-                break # Sai do loop while
+                break
             
             else:
                 print("[ERRO] Opção inválida. Por favor, tente novamente.")
@@ -138,7 +134,6 @@ def main():
             print(f"\n[ERRO DE VALOR] {e}")
         except Exception as e:
             print(f"\n[ERRO INESPERADO] Ocorreu um erro: {e}")
-            # Em uma aplicação real, seria bom logar o traceback completo aqui.
 
         input("\nPressione Enter para continuar...")
 

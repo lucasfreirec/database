@@ -1,5 +1,3 @@
-# services/livro_service.py
-
 from sqlalchemy.orm import Session
 from models import Livro
 

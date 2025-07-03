@@ -1,5 +1,3 @@
-# services/emprestimo_service.py
-
 from datetime import date
 from sqlalchemy.orm import Session
 from models import Emprestimo, Aluno, Exemplar, Contem
@@ -25,8 +23,7 @@ class EmprestimoService:
         novo_emprestimo = Emprestimo(
             mat_aluno=mat_aluno,
             data_emprestimo=date.today(),
-            # A data de devolução pode ser calculada aqui, ex: hoje + 15 dias
-            previsao_devolucao=date.today() # Simplificado por enquanto
+            previsao_devolucao=date.today() 
         )
         self.db_session.add(novo_emprestimo)
 
@@ -35,9 +32,6 @@ class EmprestimoService:
             exemplar = self.db_session.get(Exemplar, tombo)
             if not exemplar:
                 raise ValueError(f"Exemplar com tombo {tombo} não encontrado.")
-            
-            # Validação extra: verificar se o exemplar já não está emprestado
-            # (isso exigiria uma consulta na tabela 'contem')
             
             item_contem = Contem(
                 emprestimo=novo_emprestimo, # Associa o empréstimo ao item

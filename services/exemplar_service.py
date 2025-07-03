@@ -1,7 +1,4 @@
-# services/exemplar_service.py
-
 from sqlalchemy.orm import Session
-# Precisamos dos modelos Exemplar e Livro para as validações
 from models import Exemplar, Livro
 
 class ExemplarService:
@@ -15,12 +12,10 @@ class ExemplarService:
         """
         Cria um novo exemplar, associando-o a um livro existente.
         """
-        # Validação de negócio: o livro deve existir
         livro = self.db_session.get(Livro, codigo_livro)
         if not livro:
             raise ValueError(f"Não foi encontrado um livro com o código {codigo_livro}.")
 
-        # Verifica se o tombo já está em uso
         exemplar_existente = self.buscar_exemplar_por_tombo(tombo)
         if exemplar_existente:
             raise ValueError(f"Exemplar com o tombo {tombo} já existe.")
@@ -70,7 +65,6 @@ class ExemplarService:
         if not exemplar:
             return False
             
-        # Validação de negócio: não remover exemplar que está em um empréstimo
         if exemplar.emprestimos:
             raise ValueError("Não é possível remover um exemplar que está ou já esteve em um empréstimo.")
 

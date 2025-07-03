@@ -2,8 +2,6 @@ from sqlalchemy import Column, BigInteger, Integer, Date, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 from db import Base
 
-#Base = declarative_base()
-
 class Emprestimo(Base):
     __tablename__ = "emprestimo"
     

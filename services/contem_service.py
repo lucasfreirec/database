@@ -1,5 +1,3 @@
-# services/contem_service.py
-
 from datetime import date
 from sqlalchemy.orm import Session
 from models import Contem

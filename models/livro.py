@@ -2,8 +2,6 @@ from sqlalchemy import Column, String, Integer, BigInteger
 from sqlalchemy.orm import declarative_base, relationship
 from db import Base
 
-#Base = declarative_base()
-
 class Livro(Base):
     __tablename__ = "livro"
     

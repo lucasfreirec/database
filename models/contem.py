@@ -2,8 +2,6 @@ from sqlalchemy import Column, BigInteger, Date, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 from db import Base
 
-#Base = declarative_base()
-
 class Contem(Base):
     __tablename__ = "contem"
 

@@ -2,8 +2,6 @@ from sqlalchemy import Column, BigInteger, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 from db import Base
 
-#Base = declarative_base()
-
 class Exemplar(Base):
     __tablename__ = "exemplar"
     

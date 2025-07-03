@@ -2,8 +2,6 @@ from sqlalchemy import Column, String, BigInteger
 from sqlalchemy.orm import declarative_base, relationship
 from db import Base
 
-#Base = declarative_base()
-
 class Aluno(Base):
     __tablename__ = "aluno"
 
