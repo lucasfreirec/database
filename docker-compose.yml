@@ -1,0 +1,23 @@
+# docker-compose.yml
+
+services:
+  # Serviço do Banco de Dados PostgreSQL
+  db:
+    image: postgres:15  # Usa a imagem oficial do PostgreSQL
+    container_name: biblioteca_postgres
+    environment:
+      POSTGRES_USER: meu_usuario      # Cria o usuário automaticamente
+      POSTGRES_PASSWORD: minha_senha  # Define a senha
+      POSTGRES_DB: biblioteca_db      # Cria o banco de dados
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data # Persiste os dados do banco
+      - ./schema.sql:/docker-entrypoint-initdb.d/init.sql # Executa o script de schema na inicialização
+    ports:
+      - "5432:5432" # Expõe a porta do banco para o seu computador (opcional)
+
+  # Serviço da sua Aplicação Python
+  app:
+    build: .  # Constrói a imagem a partir do Dockerfile no diretório atual
+    container_name: biblioteca_app
+    depends_on:
+      - db  # Garante que o banco de dados inicie ANTES da aplicação
