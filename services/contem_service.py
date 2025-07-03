@@ -10,11 +10,10 @@ class ContemService:
         """
         Registra a data de devolução de um exemplar específico em um empréstimo.
         """
-        # A chave primária de 'contem' é composta por (id_emp, tombo_emp)
         item_contem = self.db_session.get(Contem, (id_emp, tombo_emp))
         
         if not item_contem:
-            return None # Ou levantar um erro
+            return None
             
         if item_contem.data_devol is not None:
             raise ValueError("Este exemplar já foi devolvido.")

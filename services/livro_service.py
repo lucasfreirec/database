@@ -12,7 +12,6 @@ class LivroService:
         """
         Cria um novo livro no banco de dados. 
         """
-        # Verifica se um livro com o mesmo código já existe
         livro_existente = self.buscar_livro_por_codigo(codigo)
         if livro_existente:
             raise ValueError(f"Livro com o código {codigo} já existe.")
@@ -39,7 +38,6 @@ class LivroService:
         """
         Busca um livro pelo seu código (chave primária). 
         """
-        # .get() é otimizado para busca por chave primária
         return self.db_session.get(Livro, codigo)
 
     def atualizar_livro(self, codigo: int, titulo: str = None, autor: str = None, editora: str = None, ano_pub: int = None) -> Livro | None:
@@ -71,7 +69,6 @@ class LivroService:
         if not livro:
             return False
         
-        # Lógica de negócio: não permitir exclusão se houver exemplares
         if livro.exemplares:
             raise ValueError("Não é possível remover um livro que possui exemplares cadastrados.")
             

@@ -46,7 +46,6 @@ class ExemplarService:
         if not exemplar:
             return None
             
-        # Validação: o novo livro deve existir
         novo_livro = self.db_session.get(Livro, codigo_livro)
         if not novo_livro:
             raise ValueError(f"Não foi encontrado um livro com o código {codigo_livro} para a atualização.")

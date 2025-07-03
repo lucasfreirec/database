@@ -13,7 +13,6 @@ class AlunoService:
         Cria um novo aluno no banco de dados.
         Usa session.add() e session.commit().
         """
-        # Verifica se a matrícula já existe
         aluno_existente = self.buscar_aluno_por_matricula(matricula)
         if aluno_existente:
             raise ValueError(f"Aluno com a matrícula {matricula} já existe.")

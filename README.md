@@ -11,14 +11,6 @@ Aplicação de console (CLI) para gerenciar um sistema de biblioteca, desenvolvi
 
 O projeto é **totalmente containerizado com Docker**, o que garante um ambiente de desenvolvimento e execução padronizado, simples e consistente em qualquer sistema operacional (Linux, Windows ou macOS).
 
-## Tecnologias Utilizadas
-
-* **Linguagem:** Python 3.11
-* **Banco de Dados:** PostgreSQL 15
-* **ORM:** SQLAlchemy
-* **Driver PostgreSQL:** psycopg2
-* **Containerização:** Docker & Docker Compose
-
 ---
 
 ## Pré-requisitos

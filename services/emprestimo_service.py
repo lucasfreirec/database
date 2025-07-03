@@ -14,12 +14,10 @@ class EmprestimoService:
         if not tombos_exemplares:
             raise ValueError("A lista de exemplares não pode estar vazia.")
 
-        # 1. Valida se o aluno existe
         aluno = self.db_session.get(Aluno, mat_aluno)
         if not aluno:
             raise ValueError(f"Aluno com matrícula {mat_aluno} não encontrado.")
 
-        # 2. Cria o objeto Emprestimo principal
         novo_emprestimo = Emprestimo(
             mat_aluno=mat_aluno,
             data_emprestimo=date.today(),
@@ -27,7 +25,6 @@ class EmprestimoService:
         )
         self.db_session.add(novo_emprestimo)
 
-        # 3. Para cada exemplar, cria uma entrada na tabela 'contem'
         for tombo in tombos_exemplares:
             exemplar = self.db_session.get(Exemplar, tombo)
             if not exemplar:
@@ -39,7 +36,6 @@ class EmprestimoService:
             )
             self.db_session.add(item_contem)
 
-        # 4. Salva tudo no banco de dados de uma vez
         self.db_session.commit()
         self.db_session.refresh(novo_emprestimo)
         return novo_emprestimo
