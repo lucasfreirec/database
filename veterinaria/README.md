@@ -115,6 +115,7 @@ docker compose down -v
 ```
 ---
 
+## 7. Estrutura de Arquivos
 ```
 /veterinaria
 ├── api/
