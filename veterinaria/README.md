@@ -115,7 +115,6 @@ docker compose down -v
 ```
 ---
 
-## 7. Estrutura de Arquivos
 ```
 /veterinaria
 ├── api/
@@ -127,4 +126,25 @@ docker compose down -v
 │   └── veterinario_router.py
 ├── models/
 │   ├── __init__.py
-│
+│   ├── atendimento.py
+│   └── ...
+├── repositories/
+│   ├── __init__.py
+│   ├── atendimento_repository.py
+│   └── ...
+├── schemas/
+│   ├── __init__.py
+│   ├── atendimento_schema.py
+│   └── ...
+├── services/
+│   ├── __init__.py
+│   ├── atendimento_service.py
+│   └── ...
+├── database.py
+├── main.py
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── schema.sql
+└── README.md
+```
