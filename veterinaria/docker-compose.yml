@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:15
+    container_name: veterinaria_postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: vet_db
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5433:5432"
+
+  app:
+    build: .
+    container_name: veterinaria_api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
