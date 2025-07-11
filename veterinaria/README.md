@@ -1,3 +1,5 @@
+![Banner](https://i.ibb.co/WWtzHcR1/banner.png)
+
 # Sistema de Gerenciamento de Clínicas Veterinárias
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue.svg) ![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg) ![Docker](https://img.shields.io/badge/Docker-20.10+-blue.svg)
